@@ -55,6 +55,21 @@ def getPopDataOptinalParameter(AAR = None,BYDEL = None, STATKODE = None,ALDER = 
     return dd[mask]
 
 
-print(getPopDataOptinalParameter(AAR=2004,BYDEL=3,STATKODE=5100))
+#print(getPopDataOptinalParameter(AAR=2004,BYDEL=3,STATKODE=5100))
 
 #create a new function that can also give average values for each year if year whas not provided.
+
+def get(AAR = None,BYDEL = None, STATKODE = None,ALDER = None):
+    
+    
+    pAAr = (dd[:,0] == AAR) if AAR else True
+    pBYDEL = (dd[:,1] == BYDEL) if BYDEL else True
+    pALDER = (dd[:,2] == ALDER) if ALDER else True
+    pSTATKODE = (dd[:,3] == STATKODE) if STATKODE else True
+
+    mask = pAAr & pBYDEL & pALDER & pSTATKODE
+
+    return dd[mask]
+
+
+print(getPopDataOptinalParameter(AAR=2004,BYDEL=3,STATKODE=5100))
