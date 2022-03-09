@@ -5,8 +5,9 @@ import pandas as pd
 file = "./unisex_navne.xls"
 
 dts = pd.read_excel(file, header=None)[0]
-test = list(dts)
-#print(test)
+test = dts.squeeze().tolist()
+print(type(test))
+print(len(test))
 
 def sayMyName(alist):
     num = 0
@@ -16,5 +17,4 @@ def sayMyName(alist):
 
 
 names = sayMyName(test)
-
 print(next(names))

@@ -12,8 +12,16 @@ url = "https://api.statbank.dk/v1/data/FOLK1A/CSV?delimiter=Semicolon&CIVILSTAND
 
 dst = pd.read_csv(url)
 dst.to_csv('dk-stat-all-tables.csv', encoding='utf-8', index=False)
-print(dst[:20])
+#print(dst[:20])
 
 #Which of the 5 biggest cities has the highest percentage of 'Never Married' in 2020?
+
+url = "https://api.statbank.dk/v1/data/FOLK1A/CSV?delimiter=Semicolon&CIVILSTAND=U%2CTOT&Tid=2020K1&OMR%C3%85DE=101%2C085%2C607%2C350%2C265"
+dst = pd.read_csv(url)
+dst.to_csv('dk-stat-all-tables.csv', encoding='utf-8', index=False)
+
+print(dst[:20])
+
+
 #Show a bar chart of changes in marrital status in Copenhagen from 2008 till now
 #Show 2 plots in same figure: 'Married' and 'Never Married' for all ages in DK in 2020 (Hint: x axis is age from 0-125, y axis is how many people in the 2 categories). Add lengend to show names on graphs
