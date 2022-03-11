@@ -1,4 +1,5 @@
-from modules import webget
+
+import requests
 
 class TextComparer():
 
@@ -6,13 +7,20 @@ class TextComparer():
         self.url_list = url_list
 
 
-    def download(url,filename):
+    def download(self,url,filename):
         try:
-            webget.download(url,filename)
+            print("jatak")
+            res =  requests.get(url,stream=True)
+            open(filename,'wb').write(res.content)
+            return "Downloaded completed"
         except:
             return "URL not found"
+            #NotFound is not found  
+            #raise NotFoundException(url)
 
 
 tc = TextComparer([])
-tc.download("https://www.gutenberg.org/files/84/84-0.txt")
+print(tc.download("https://www.gutenberg.org/files/84/84-0.txt","fisse.txt"))
+#print(tc.download("https://www.gutenberg.orgadsfdasfadt"))
+
 #python -m my_work.week6.TextComparer
