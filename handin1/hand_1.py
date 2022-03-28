@@ -18,7 +18,7 @@ dts = pd.read_csv('Data1.csv')
 disney = dts.loc[dts['Distributor'] == 'Walt Disney Studios Motion Pictures']
 
 disneySorted = disney.sort_values(by=['World Sales (in $)'],ascending=False)
-#Get Bitches
+#Solution to 1
 #print(disneySorted[:10])
 
 
@@ -33,11 +33,11 @@ for x in licenses:
     ratingLabel.append(x)
 
 
+#solution to 2:
 #plt.pie(ratingCount, labels = ratingLabel)
 #plt.show()
 
 #3. Get the percentage of PG rated movies between 2001 and 2015
-
 
 all_PG_movies = dts.loc[dts['License'] == 'PG']
 new = all_PG_movies["Release Date"].str.split(",", n=1)
@@ -59,6 +59,8 @@ for year in range(2001,2016):
     #print(procent_of_movies_pr_year)
 
 procent_of_movies = (PG_movies_in_2001_2015/len(all_PG_movies)) * 100
+
+#Solution to 3.
 #print(procent_of_movies)
 
 #4. Calculate the average of world sales for each genre and visualize the data with a bar chart. (Hint: use groupBy)
