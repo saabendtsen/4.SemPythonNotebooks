@@ -49,6 +49,7 @@ def get_info(url):
         atag = link.find_element_by_tag_name('a')
         link = atag.get_attribute('href')
         links.append(link)
+        print(link)
     
     print(len(links))
 
@@ -66,7 +67,9 @@ def get_info(url):
         print(runtime[2].get_attribute("innerHTML").strip())
 
         #score = browser.find_element_by_class_name('percentage').text
-        score = browser.find_element_by_xpath('//*[@id="topSection"]/div[1]/score-board//div/div[2]/div[1]/div/score-icon-critic//div/span[2]')
+        score = browser.find_element_by_xpath('//*[@id="topSection"]/div[1]/score-board//div/div[2]/div[1]/div/score-icon-critic')
+        print(score)
+        #[contains(@class,'percentage')]
 
         print(score)
 
